@@ -1,0 +1,20 @@
+services:
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j
+    volumes:
+      - ./.neo4j/logs:/logs
+      - ./.neo4j/config:/config
+      - ./.neo4j/data:/data
+      - ./.neo4j/plugins:/plugins
+    environment:
+      - NEO4J_AUTH=neo4j/test1234
+      - NEO4JLABS_PLUGINS=["graph-data-science", "apoc"]
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.*,gds.*
+      - NEO4J_dbms_security_procedures_allowlist=apoc.*,gds.*
+      - NEO4J_dbms_connector_http_advertised__address=localhost:7474
+      - NEO4J_dbms_connector_bolt_advertised__address=localhost:7687
+    ports:
+      - "7474:7474"   # UI - Neo4j Browser
+      - "7687:7687"   # Bolt - Database connection
+    restart: always
