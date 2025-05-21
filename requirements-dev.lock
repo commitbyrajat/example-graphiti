@@ -15,9 +15,13 @@ annotated-types==0.7.0
 anyio==4.9.0
     # via httpx
     # via openai
+black==25.1.0
+    # via example-graphiti
 certifi==2025.4.26
     # via httpcore
     # via httpx
+click==8.2.1
+    # via black
 diskcache==5.6.3
     # via graphiti-core
 distro==1.9.0
@@ -33,14 +37,24 @@ httpx==0.28.1
 idna==3.10
     # via anyio
     # via httpx
+isort==6.0.1
+    # via example-graphiti
 jiter==0.9.0
     # via openai
+mypy-extensions==1.1.0
+    # via black
 neo4j==5.28.1
     # via graphiti-core
 numpy==2.2.6
     # via graphiti-core
 openai==1.79.0
     # via graphiti-core
+packaging==25.0
+    # via black
+pathspec==0.12.1
+    # via black
+platformdirs==4.3.8
+    # via black
 pydantic==2.11.4
     # via graphiti-core
     # via openai
