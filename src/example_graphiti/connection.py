@@ -20,14 +20,15 @@ class Connection:
 
         self.graphiti = Graphiti(neo4j_uri, neo4j_user, neo4j_password)
 
+
     async def add_episodes(
-        self, episodes: List[Dict[str, Union[str, Dict[str, str], EpisodeType]]]
+        self,name: str ,episodes: List[Dict[str, Union[str, Dict[str, str], EpisodeType]]]
     ):
         try:
             await self.graphiti.build_indices_and_constraints()
             for i, episode in enumerate(episodes):
                 await self.graphiti.add_episode(
-                    name=f"Freakonomics Radio {i}",
+                    name=f"{name} {i}",
                     episode_body=(
                         episode["content"]
                         if isinstance(episode["content"], str)
@@ -38,7 +39,7 @@ class Connection:
                     reference_time=datetime.now(timezone.utc),
                 )
                 print(
-                    f'Added episode: Freakonomics Radio {i} ({episode["type"].value})'
+                    f'Added episode: {name} {i} ({episode["type"].value})'
                 )
         finally:
             print("Saving Episodes Completed !!")

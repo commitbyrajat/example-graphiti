@@ -1,11 +1,8 @@
 import asyncio
 import logging
-import os
 from logging import INFO
 
 from dotenv import load_dotenv
-from graphiti_core.nodes import EpisodeType
-from graphiti_core.search.search_config_recipes import NODE_HYBRID_SEARCH_RRF
 
 from src.example_graphiti.connection import Connection
 from src.example_graphiti.example_cart import ExampleCart

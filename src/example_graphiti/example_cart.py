@@ -57,7 +57,7 @@ class ExampleCart:
             )
 
             if enable_indexing:
-                await conn.add_episodes(episodes)
+                await conn.add_episodes('Freakonomics Radio',episodes)
             else:
                 print("\nIndexing is disabled.")
 
