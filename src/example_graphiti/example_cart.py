@@ -77,7 +77,7 @@ class ExampleCart:
         finally:
             await conn.close()
 
-    def execute_langgraph_agent(self, conn: Connection):
+    async def execute_langgraph_agent(self, conn: Connection):
         pass
 
 

@@ -7,6 +7,7 @@ from graphiti_core import Graphiti
 from graphiti_core.edges import EntityEdge
 from graphiti_core.nodes import EpisodeType
 from graphiti_core.search.search_config import SearchConfig
+from graphiti_core.utils.maintenance import clear_data
 
 
 class Connection:
@@ -119,3 +120,7 @@ class Connection:
     async def close(self):
         await self.graphiti.close()
         print("connection closed !!")
+
+    async def clear_data(self):
+        await clear_data(self.graphiti.driver)
+        print("Clearing Previous Data")
